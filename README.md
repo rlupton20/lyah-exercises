@@ -29,5 +29,7 @@ In GHCi, how can you find out what typeclasses a type belongs to?
 ## Syntax in functions
 
 ### Exercise (basic)
-	- Write a function, `fibPairs`, so that when given an integer `n`, `fibPairs` returns a pair of integers representing the (n - 1)th and and nth fibonnacci numbers. You can take the -1st element of the fibonnaci sequence to be 0, and the 0th to be 1.
-	- Write a function `fibonnaci` that maps an integer n to the nth fibonnacci number.
+
+Write a function to generate the fibonacci numbers
+  - Write a function, `fibPairs`, so that when given an integer `n`, `fibPairs` returns a pair of integers representing the (n - 1)th and and nth fibonnacci numbers. You can take the -1st element of the fibonnaci sequence to be 0, and the 0th to be 1.
+  - Write a function `fibonnaci` that maps an integer n to the nth fibonnacci number.
