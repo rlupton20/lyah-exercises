@@ -56,10 +56,10 @@ We can run a parser `p` on a string `s` with `runParser p s`.
 #### Part 1
 
 Write a `Parser` `character c` which matches a character if and only if that character is `c`. Test cases:
-  - `runParser (char 'a') "a" == Partial 'a' ""`
-  - `runParser (char 'a') "b" == Fail`
-  - `runParser (char 'a') "" == Fail`
-  - `runParser (char 'a') "ab" == Partial 'a' "b"`
+  - `runParser (character 'a') "a" == Partial 'a' ""`
+  - `runParser (character 'a') "b" == Fail`
+  - `runParser (character 'a') "" == Fail`
+  - `runParser (character 'a') "ab" == Partial 'a' "b"`
 
 Write a `Parser` `anychar` which matches any characer. Test cases:
   - `runParser anychar "ab" == Partial "a" "b"`
