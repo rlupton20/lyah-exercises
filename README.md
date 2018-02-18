@@ -61,6 +61,10 @@ Write a `Parser` `character c` which matches a character if and only if that cha
   - `runParser (char 'a') "" == Fail`
   - `runParser (char 'a') "ab" == Partial 'a' "b"`
 
+Write a `Parser` `anychar` which matches any characer. Test cases:
+  - `runParser anychar "ab" == Partial "a" "b"`
+  - `runParser anychar "" == Fail`
+
 Write a `Parser` `tag t` which matches precisely when the start of the string is `t`. Test cases:
   - `runParser (tag "test") "test" == Partial "test" ""`
   - `runParser (tag "test") "tes" == Fail`
@@ -70,7 +74,8 @@ Write a `Parser` `tag t` which matches precisely when the start of the string is
 
 Write a `Functor` instance for `Parser`. Test cases:
   - `runParser (fmap length $ tag "foo") "foobar" = Partial 3 "bar"`
-  - `runParser (fmap ((=='a') $ char 'a') "bb" = Partial False "b"`
+  - `runParser (fmap (=='a') anychar) "bb" = Partial False "b"`
+  - `runParser (fmap (=='a') anychar) "ab" = Partial True "b"`
 
 #### Part 3
 
