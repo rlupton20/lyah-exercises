@@ -75,10 +75,10 @@ Write a `Functor` instance for `Parser`. Test cases:
 #### Part 3
 
 Write an `Applicative` instance for `Parser`. Test cases:
-	- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foobar" == Partial ("foo", "bar") ""`
-	- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "goobar" == Fail`
-	- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foogar" == Fail`
-	- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foobarbaz" == Partial ("foo", "bar") "baz"`
+  - `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foobar" == Partial ("foo", "bar") ""`
+  - `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "goobar" == Fail`
+  - `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foogar" == Fail`
+  - `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foobarbaz" == Partial ("foo", "bar") "baz"`
 
 #### Part 4 (Extension)
 
