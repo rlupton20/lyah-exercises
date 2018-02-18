@@ -54,27 +54,32 @@ newtype Parser a = Parser { runParser :: String -> Result a }
 We can run a parser `p` on a string `s` with `runParser p s`.
 
 #### Part 1
-  - Write a `Parser` `character c` which matches a character if and only if that character is `c`. Test cases:
-	- `runParser (char 'a') "a" == Partial 'a' ""`
-	- `runParser (char 'a') "b" == Fail`
-	- `runParser (char 'a') "" == Fail`
-	- `runParser (char 'a') "ab" == Partial 'a' "b"`
-  - Write a `Parser` `tag t` which matches precisely when the start of the string is `t`. Test cases:
-	- `runParser (tag "test") "test" == Partial "test" ""`
-	- `runParser (tag "test") "tes" == Fail`
-	- `runParser (tag "test") "testing" == Partial "test" "ing"`
+
+Write a `Parser` `character c` which matches a character if and only if that character is `c`. Test cases:
+  - `runParser (char 'a') "a" == Partial 'a' ""`
+  - `runParser (char 'a') "b" == Fail`
+  - `runParser (char 'a') "" == Fail`
+  - `runParser (char 'a') "ab" == Partial 'a' "b"`
+
+Write a `Parser` `tag t` which matches precisely when the start of the string is `t`. Test cases:
+  - `runParser (tag "test") "test" == Partial "test" ""`
+  - `runParser (tag "test") "tes" == Fail`
+  - `runParser (tag "test") "testing" == Partial "test" "ing"`
 
 #### Part 2
-	- Write a `Functor` instance for `Parser`. Test cases:
-		- `runParser (fmap length $ tag "foo") "foobar" = Partial 3 "bar"`
-		- `runParser (fmap ((=='a') $ char 'a') "bb" = Partial False "b"`
+
+Write a `Functor` instance for `Parser`. Test cases:
+  - `runParser (fmap length $ tag "foo") "foobar" = Partial 3 "bar"`
+  - `runParser (fmap ((=='a') $ char 'a') "bb" = Partial False "b"`
 
 #### Part 3
-	- Write an `Applicative` instance for `Parser`. Test cases:
-		- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foobar" == Partial ("foo", "bar") ""`
-		- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "goobar" == Fail`
-		- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foogar" == Fail`
-		- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foobarbaz" == Partial ("foo", "bar") "baz"`
+
+Write an `Applicative` instance for `Parser`. Test cases:
+	- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foobar" == Partial ("foo", "bar") ""`
+	- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "goobar" == Fail`
+	- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foogar" == Fail`
+	- `runParser ( (,) <$> tag "foo" <*> tag "bar" ) "foobarbaz" == Partial ("foo", "bar") "baz"`
 
 #### Part 4 (Extension)
-	Build a basic parsing library.
+
+Build a basic parsing library.
