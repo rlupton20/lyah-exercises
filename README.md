@@ -77,13 +77,14 @@ isPrefixOf              :: (Eq a) => [a] -> [a] -> Bool
 
 ### Exercise (primes)
 
+Attempt this exercise after reading the **Maps and Filters** section.
+
 Write functions that produce:
 * The 1st n primes
 * The nth prime
 * The first prime above a given integer
 
-Attempt the functions after reading **Maps and Filters**.
-For each following section, rewrite your functions with some new syntax you have learned.  Observe how the syntactic sugar melts away as you approach the end of this chapter.
+For each following section of this chapter, rewrite your functions with some new syntax you have learned.  Observe how the syntactic sugar melts away as you approach the end of this chapter.
 
 ## Modules
 
