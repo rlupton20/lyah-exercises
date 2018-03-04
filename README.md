@@ -21,8 +21,8 @@ Implement the fizz buzz list. If x is the i'th element of `fizzBuzz` then
 
 ### Exercise (intermediate)
 
-Write a function that implements an aproximation to sqrt for integers.
-Ensure that the function gives sensible output for any integer value (including 0 and -ve integers).
+Write a function that implements an approximation to sqrt for integers.
+`floor . sqrt` will do this.  Find another way.
 
 ### Exercise (advanced)
 
@@ -38,8 +38,8 @@ In GHCi, how can you find out what typeclasses a type belongs to?
 ### Exercise (basic)
 
 Write a function to generate the fibonacci numbers
-  - Write a function, `fibPairs`, so that when given an integer `n`, `fibPairs` returns a pair of integers representing the (n - 1)th and and nth fibonnacci numbers. You can take the -1st element of the fibonnaci sequence to be 0, and the 0th to be 1.
-  - Write a function `fibonnaci` that maps an integer n to the nth fibonnacci number.
+  - Write a function, `fibPairs`, so that when given an integer `n`, `fibPairs` returns a pair of integers representing the (n - 1)th and nth fibonacci numbers. You can take the -1st element of the fibonnaci sequence to be 0, and the 0th to be 1.
+  - Write a function `fibonnaci` that maps an integer n to the nth fibonacci number.
 
 ## Recursion
 
@@ -94,20 +94,11 @@ Load this module into ghci.
 
 ## Making our own Types and Typeclasses
 
-### Exercise (anti-strings)
-
-In physics there re particles and antiparticles.  When a particle meets it's antiparticle counterpart they annihilate to nothing!
-Introducing anti-strings! E.g:
-```
-"disfunctional" ++ Antistring "fun" => "disctional"
-```
-Define a type system that incorportates antistrings and implement `(++)` to fit the example above.
-
 ## Functors, Applicative Functors and Monoids
 
 ### Exercise (write a basic parser)
 
-Let's write some basic parsing tools. Let's start with a result type, indicating how a parse is progressing - it either failed, or has so far produced an a with some remaining input.
+Let's write some basic parsing tools. Let's start with a result type, indicating how a parse is progressing - it either failed, or has so far produced an `a` with some remaining input.
 
 ```haskell
 data Result a = Partial a String | Fail deriving (Eq, Show)
@@ -129,7 +120,7 @@ Write a `Parser` `character c` which matches a character if and only if that cha
   - `runParser (character 'a') "" == Fail`
   - `runParser (character 'a') "ab" == Partial 'a' "b"`
 
-Write a `Parser` `anychar` which matches any characer. Test cases:
+Write a `Parser` `anychar` which matches any character. Test cases:
   - `runParser anychar "ab" == Partial "a" "b"`
   - `runParser anychar "" == Fail`
 
